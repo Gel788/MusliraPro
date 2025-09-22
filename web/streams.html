@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трансляции - MusliraPro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Премиальный хедер -->
+    <header class="premium-header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-music"></i>
+                    <span>MusliraPro</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="streams.html" class="nav-link active">Трансляции</a>
+                <a href="index.html#concerts" class="nav-link">Концерты</a>
+                <a href="index.html#partners" class="nav-link">Партнеры</a>
+                <a href="index.html#subscription" class="nav-link premium-btn">Подписка</a>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Элитная секция трансляций -->
+    <section class="streams-hero">
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+            <div class="floating-elements">
+                <div class="floating-note note-1">♪</div>
+                <div class="floating-note note-2">♫</div>
+                <div class="floating-note note-3">♪</div>
+                <div class="floating-note note-4">♫</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="streams-hero-content">
+                <h1 class="streams-title">
+                    <span class="gradient-text">🔥 Живые трансляции</span>
+                </h1>
+                <p class="streams-subtitle">
+                    Погрузитесь в мир эксклюзивных музыкальных событий в реальном времени
+                </p>
+                <div class="streams-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Активных трансляций</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2,847</div>
+                        <div class="stat-label">Зрителей онлайн</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Артистов</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Фильтры и поиск -->
+    <section class="streams-filters">
+        <div class="container">
+            <div class="filters-content">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Поиск трансляций..." class="search-input">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="live">LIVE</button>
+                    <button class="filter-btn" data-filter="electronic">Электронная</button>
+                    <button class="filter-btn" data-filter="acoustic">Акустическая</button>
+                    <button class="filter-btn" data-filter="jazz">Джаз</button>
+                    <button class="filter-btn" data-filter="rock">Рок</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сетка трансляций -->
+    <section class="streams-grid-section">
+        <div class="container">
+            <div class="streams-grid">
+                <!-- Живая трансляция -->
+                <div class="stream-card featured live" data-category="electronic">
+                    <div class="stream-image">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop" alt="Электронная ночь">
+                        <div class="live-badge">
+                            <div class="live-dot"></div>
+                            <span>LIVE</span>
+                        </div>
+                        <div class="viewers-count">
+                            <i class="fas fa-eye"></i>
+                            <span>2,847 зрителей</span>
+                        </div>
+                        <div class="stream-controls">
+                            <button class="control-btn play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="control-btn volume-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <button class="control-btn fullscreen-btn">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stream-content">
+                        <div class="stream-header">
+                            <h3 class="stream-title">🔥 Электронная ночь в Москве</h3>
+                            <div class="stream-category electronic">Электронная</div>
+                        </div>
+                        <p class="stream-artist">DJ Muslira & Friends</p>
+                        <div class="stream-description">
+                            Эксклюзивная электронная вечеринка с лучшими диджеями Москвы. 
+                            Не пропустите это уникальное событие!
+                        </div>
+                        <div class="stream-stats">
+                            <span class="stat">
+                                <i class="fas fa-users"></i>
+                                2,847 онлайн
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-clock"></i>
+                                2:45:12
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-heart"></i>
+                                1,234 лайка
+                            </span>
+                        </div>
+                        <div class="stream-actions">
+                            <button class="action-btn like-btn">
+                                <i class="fas fa-heart"></i>
+                                Лайк
+                            </button>
+                            <button class="action-btn share-btn">
+                                <i class="fas fa-share"></i>
+                                Поделиться
+                            </button>
+                            <button class="action-btn subscribe-btn">
+                                <i class="fas fa-bell"></i>
+                                Подписаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Записанные трансляции -->
+                <div class="stream-card" data-category="acoustic">
+                    <div class="stream-image">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a5d4?w=600&h=400&fit=crop" alt="Акустический вечер">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="duration">2:34:15</div>
+                        <div class="stream-category acoustic">Акустическая</div>
+                    </div>
+                    <div class="stream-content">
+                        <h3 class="stream-title">🎸 Акустический вечер</h3>
+                        <p class="stream-artist">Группа 'Мелодия'</p>
+                        <div class="stream-stats">
+                            <span class="stat">
+                                <i class="fas fa-play"></i>
+                                2:34:15
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                15,234 просмотра
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-card" data-category="jazz">
+                    <div class="stream-image">
+                        <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429dba?w=600&h=400&fit=crop" alt="Джаз сессия">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="duration">1:45:30</div>
+                        <div class="stream-category jazz">Джаз</div>
+                    </div>
+                    <div class="stream-content">
+                        <h3 class="stream-title">🎷 Джаз сессия</h3>
+                        <p class="stream-artist">Jazz Collective</p>
+                        <div class="stream-stats">
+                            <span class="stat">
+                                <i class="fas fa-play"></i>
+                                1:45:30
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                8,567 просмотров
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-card" data-category="rock">
+                    <div class="stream-image">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&h=400&fit=crop" alt="Рок концерт">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="duration">3:12:45</div>
+                        <div class="stream-category rock">Рок</div>
+                    </div>
+                    <div class="stream-content">
+                        <h3 class="stream-title">🎸 Рок концерт</h3>
+                        <p class="stream-artist">Rock Band</p>
+                        <div class="stream-stats">
+                            <span class="stat">
+                                <i class="fas fa-play"></i>
+                                3:12:45
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                22,891 просмотр
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-card" data-category="electronic">
+                    <div class="stream-image">
+                        <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=400&fit=crop" alt="Техно вечеринка">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="duration">4:23:12</div>
+                        <div class="stream-category electronic">Электронная</div>
+                    </div>
+                    <div class="stream-content">
+                        <h3 class="stream-title">🎛️ Техно вечеринка</h3>
+                        <p class="stream-artist">Techno DJs</p>
+                        <div class="stream-stats">
+                            <span class="stat">
+                                <i class="fas fa-play"></i>
+                                4:23:12
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                31,456 просмотров
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stream-card" data-category="acoustic">
+                    <div class="stream-image">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop" alt="Фолк концерт">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="duration">2:15:33</div>
+                        <div class="stream-category acoustic">Акустическая</div>
+                    </div>
+                    <div class="stream-content">
+                        <h3 class="stream-title">🎻 Фолк концерт</h3>
+                        <p class="stream-artist">Folk Ensemble</p>
+                        <div class="stream-stats">
+                            <span class="stat">
+                                <i class="fas fa-play"></i>
+                                2:15:33
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                12,789 просмотров
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Элитный футер -->
+    <footer class="premium-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-music"></i>
+                        <span>MusliraPro</span>
+                    </div>
+                    <p class="footer-description">
+                        Элитная музыкальная платформа для ценителей качественной музыки
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Навигация</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="streams.html">Трансляции</a></li>
+                        <li><a href="index.html#concerts">Концерты</a></li>
+                        <li><a href="index.html#partners">Партнеры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Поддержка</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Помощь</a></li>
+                        <li><a href="#">Контакты</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Сообщество</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Социальные сети</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MusliraPro. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/streams.js"></script>
+</body>
+</html>
