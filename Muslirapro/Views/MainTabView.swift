@@ -50,5 +50,15 @@ struct MainTabView: View {
         }
         .accentColor(.red)
         .environmentObject(authManager)
+        .onAppear {
+            // Настройка навигации с логотипом
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.black
+            appearance.shadowColor = UIColor.red.withAlphaComponent(0.3)
+            
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
 }

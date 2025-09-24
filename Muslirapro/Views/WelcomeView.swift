@@ -66,15 +66,12 @@ struct WelcomeView: View {
                                 )
                                 .frame(width: 200, height: 200)
                             
-                            // Текст логотипа
+                            // Логотип
                             VStack(spacing: 8) {
-                                Text("Муз")
-                                    .font(.system(size: 36, weight: .black, design: .rounded))
-                                    .foregroundColor(.white)
-                                
-                                Text("Лира")
-                                    .font(.system(size: 36, weight: .black, design: .rounded))
-                                    .foregroundColor(.white)
+                                Image("Logo")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 120, height: 120)
                                 
                                 Text("Pro")
                                     .font(.system(size: 18, weight: .bold, design: .rounded))

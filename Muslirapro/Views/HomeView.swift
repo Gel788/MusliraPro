@@ -78,15 +78,34 @@ struct HomeView: View {
                                             .foregroundColor(.white.opacity(0.9))
                                     }
                                     
-                                    Text("Муз Лира")
-                                        .font(.system(size: 36, weight: .black, design: .rounded))
-                                        .foregroundStyle(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: [.white, .red, .orange]),
-                                                startPoint: .leading,
-                                                endPoint: .trailing
-                                            )
-                                        )
+                                    HStack(spacing: 16) {
+                                        Image("Logo")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 50, height: 50)
+                                        
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text("Муз Лира")
+                                                .font(.system(size: 28, weight: .black, design: .rounded))
+                                                .foregroundStyle(
+                                                    LinearGradient(
+                                                        gradient: Gradient(colors: [.white, .red, .orange]),
+                                                        startPoint: .leading,
+                                                        endPoint: .trailing
+                                                    )
+                                                )
+                                            
+                                            Text("Pro")
+                                                .font(.system(size: 12, weight: .bold, design: .rounded))
+                                                .foregroundColor(.white.opacity(0.8))
+                                                .padding(.horizontal, 6)
+                                                .padding(.vertical, 2)
+                                                .background(
+                                                    Capsule()
+                                                        .fill(Color.white.opacity(0.2))
+                                                )
+                                        }
+                                    }
                                     
                                     Text("🎵 Музыкальная платформа нового поколения")
                                         .font(.subheadline)
