@@ -11,407 +11,274 @@ struct ProfileView: View {
     @EnvironmentObject var authManager: AuthenticationManager
     @State private var showingLogin = false
     @State private var currentTime = Date()
+    @State private var user = User(username: "Пользователь", email: "user@example.com")
     
     var body: some View {
         NavigationView {
             ZStack {
-                // Премиальный градиентный фон
-                LinearGradient(
-                    gradient: Gradient(colors: [
-                        Color.black,
-                        Color.purple.opacity(0.1),
-                        Color.blue.opacity(0.05)
-                    ]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
+                // Современный светлый фон
+                Color(.systemGroupedBackground)
+                    .ignoresSafeArea()
                 
                 ScrollView {
                     VStack(spacing: 30) {
                         if authManager.isAuthenticated {
-                            // Элитный профиль авторизованного пользователя
+                            // Современный профиль пользователя
                             VStack(spacing: 24) {
-                                // Премиальный хедер профиля
+                                // Профильная карточка
                                 VStack(spacing: 20) {
+                                    // Аватар
                                     ZStack {
-                                        // Элитный аватар с градиентом
                                         Circle()
                                             .fill(
                                                 LinearGradient(
-                                                    gradient: Gradient(colors: [
-                                                        Color.purple,
-                                                        Color.blue,
-                                                        Color.pink
-                                                    ]),
+                                                    gradient: Gradient(colors: [.red, .orange]),
                                                     startPoint: .topLeading,
                                                     endPoint: .bottomTrailing
                                                 )
                                             )
-                                            .frame(width: 120, height: 120)
-                                            .overlay(
-                                                Circle()
-                                                    .stroke(
-                                                        LinearGradient(
-                                                            gradient: Gradient(colors: [.white, .white.opacity(0.3)]),
-                                                            startPoint: .topLeading,
-                                                            endPoint: .bottomTrailing
-                                                        ),
-                                                        lineWidth: 4
-                                                    )
-                                            )
-                                            .shadow(color: .purple.opacity(0.4), radius: 20, x: 0, y: 10)
+                                            .frame(width: 80, height: 80)
                                         
                                         Text("U")
-                                            .font(.system(size: 48, weight: .black))
+                                            .font(.system(size: 32, weight: .bold))
                                             .foregroundColor(.white)
                                     }
                                     
-                                    VStack(spacing: 12) {
+                                    VStack(spacing: 8) {
                                         Text("Пользователь")
-                                            .font(.title)
-                                            .fontWeight(.black)
-                                            .foregroundStyle(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [.white, .purple.opacity(0.8)]),
-                                                    startPoint: .leading,
-                                                    endPoint: .trailing
-                                                )
-                                            )
+                                            .font(.title2)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.primary)
                                         
                                         Text("user@example.com")
                                             .font(.subheadline)
-                                            .foregroundColor(.white.opacity(0.8))
+                                            .foregroundColor(.secondary)
                                         
-                                        HStack(spacing: 8) {
+                                        HStack(spacing: 6) {
                                             Circle()
                                                 .fill(Color.green)
-                                                .frame(width: 8, height: 8)
+                                                .frame(width: 6, height: 6)
                                             Text("Онлайн")
                                                 .font(.caption)
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(.white.opacity(0.9))
+                                                .fontWeight(.medium)
+                                                .foregroundColor(.green)
                                         }
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 6)
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 4)
                                         .background(
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .fill(Color.green.opacity(0.2))
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 12)
-                                                        .stroke(Color.green.opacity(0.3), lineWidth: 1)
-                                                )
+                                            Capsule()
+                                                .fill(Color.green.opacity(0.1))
                                         )
                                     }
                                 }
-                                .padding(.horizontal, 24)
-                                .padding(.vertical, 32)
+                                .padding(24)
                                 .background(
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 24)
-                                            .fill(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [
-                                                        Color.purple.opacity(0.9),
-                                                        Color.blue.opacity(0.8),
-                                                        Color.pink.opacity(0.7)
-                                                    ]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing
-                                                )
-                                            )
-                                        
-                                        RoundedRectangle(cornerRadius: 24)
-                                            .fill(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [
-                                                        Color.white.opacity(0.2),
-                                                        Color.clear,
-                                                        Color.white.opacity(0.1)
-                                                    ]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing
-                                                )
-                                            )
-                                    }
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color(.systemBackground))
+                                        .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
                                 )
-                                .shadow(color: .purple.opacity(0.3), radius: 20, x: 0, y: 10)
                                 
-                                // Премиальные статистики
-                                LazyVGrid(columns: [
-                                    GridItem(.flexible()),
-                                    GridItem(.flexible())
-                                ], spacing: 16) {
-                                    PremiumStatCard(
-                                        title: "Трансляции",
-                                        value: "12",
-                                        icon: "play.circle.fill",
-                                        gradient: [.blue, .cyan]
-                                    )
-                                    
-                                    PremiumStatCard(
-                                        title: "Концерты",
-                                        value: "8",
-                                        icon: "music.note.house.fill",
-                                        gradient: [.green, .mint]
-                                    )
-                                    
-                                    PremiumStatCard(
-                                        title: "Сообщения",
-                                        value: "156",
-                                        icon: "message.fill",
-                                        gradient: [.orange, .yellow]
-                                    )
-                                    
-                                    PremiumStatCard(
-                                        title: "Подписка",
-                                        value: "Pro",
-                                        icon: "crown.fill",
-                                        gradient: [.purple, .pink]
-                                    )
-                                }
-                                .padding(.horizontal)
-                                
-                                // Элитная кнопка выхода
-                                Button(action: {
-                                    authManager.logout()
-                                }) {
-                                    HStack(spacing: 12) {
-                                        Image(systemName: "arrow.right.square.fill")
-                                            .font(.title3)
-                                        
-                                        Text("Выйти из аккаунта")
-                                            .font(.headline)
-                                            .fontWeight(.bold)
-                                    }
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 16)
-                                    .background(
-                                        ZStack {
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .fill(
-                                                    LinearGradient(
-                                                        gradient: Gradient(colors: [.red, .red.opacity(0.8)]),
-                                                        startPoint: .leading,
-                                                        endPoint: .trailing
-                                                    )
-                                                )
-                                            
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .fill(
-                                                    LinearGradient(
-                                                        gradient: Gradient(colors: [
-                                                            Color.white.opacity(0.2),
-                                                            Color.clear
-                                                        ]),
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing
-                                                    )
-                                                )
-                                        }
-                                    )
-                                    .shadow(color: .red.opacity(0.3), radius: 10, x: 0, y: 5)
-                                }
-                                .padding(.horizontal)
-                            }
-                        } else {
-                            // Элитный гостевой режим
-                            VStack(spacing: 24) {
-                                // Премиальный хедер гостя
-                                VStack(spacing: 20) {
-                                    ZStack {
-                                        // Элитный аватар гостя
-                                        Circle()
-                                            .fill(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [
-                                                        Color.gray,
-                                                        Color.gray.opacity(0.7),
-                                                        Color.gray.opacity(0.5)
-                                                    ]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing
-                                                )
-                                            )
-                                            .frame(width: 120, height: 120)
-                                            .overlay(
-                                                Circle()
-                                                    .stroke(
-                                                        LinearGradient(
-                                                            gradient: Gradient(colors: [.white, .white.opacity(0.3)]),
-                                                            startPoint: .topLeading,
-                                                            endPoint: .bottomTrailing
-                                                        ),
-                                                        lineWidth: 4
-                                                    )
-                                            )
-                                            .shadow(color: .gray.opacity(0.4), radius: 20, x: 0, y: 10)
-                                        
-                                        Text("Г")
-                                            .font(.system(size: 48, weight: .black))
-                                            .foregroundColor(.white)
-                                    }
-                                    
-                                    VStack(spacing: 12) {
-                                        Text("Гость")
-                                            .font(.title)
-                                            .fontWeight(.black)
-                                            .foregroundStyle(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [.white, .gray.opacity(0.8)]),
-                                                    startPoint: .leading,
-                                                    endPoint: .trailing
-                                                )
-                                            )
-                                        
-                                        Text("Войдите для полного доступа")
-                                            .font(.subheadline)
-                                            .foregroundColor(.white.opacity(0.8))
-                                        
-                                        HStack(spacing: 8) {
-                                            Circle()
-                                                .fill(Color.orange)
-                                                .frame(width: 8, height: 8)
-                                            Text("Ограниченный доступ")
-                                                .font(.caption)
-                                                .fontWeight(.semibold)
-                                                .foregroundColor(.white.opacity(0.9))
-                                        }
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 6)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 12)
-                                                .fill(Color.orange.opacity(0.2))
-                                                .overlay(
-                                                    RoundedRectangle(cornerRadius: 12)
-                                                        .stroke(Color.orange.opacity(0.3), lineWidth: 1)
-                                                )
-                                        )
-                                    }
-                                }
-                                .padding(.horizontal, 24)
-                                .padding(.vertical, 32)
-                                .background(
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 24)
-                                            .fill(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [
-                                                        Color.gray.opacity(0.9),
-                                                        Color.gray.opacity(0.7),
-                                                        Color.gray.opacity(0.5)
-                                                    ]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing
-                                                )
-                                            )
-                                        
-                                        RoundedRectangle(cornerRadius: 24)
-                                            .fill(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [
-                                                        Color.white.opacity(0.2),
-                                                        Color.clear,
-                                                        Color.white.opacity(0.1)
-                                                    ]),
-                                                    startPoint: .topLeading,
-                                                    endPoint: .bottomTrailing
-                                                )
-                                            )
-                                    }
-                                )
-                                .shadow(color: .gray.opacity(0.3), radius: 20, x: 0, y: 10)
-                                
-                                // Премиальные возможности для гостей
+                                // Статистика
                                 VStack(spacing: 16) {
-                                    Text("Доступные функции")
-                                        .font(.title2)
-                                        .fontWeight(.black)
-                                        .foregroundColor(.white)
-                                        .padding(.bottom, 8)
+                                    Text("Статистика")
+                                        .font(.headline)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.primary)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                     
                                     LazyVGrid(columns: [
                                         GridItem(.flexible()),
                                         GridItem(.flexible())
-                                    ], spacing: 16) {
-                                        PremiumFeatureCard(
+                                    ], spacing: 12) {
+                                        ModernStatCard(
+                                            title: "Баланс",
+                                            value: "\(Int(user.balance)) ₽",
+                                            icon: "dollarsign.circle.fill",
+                                            color: .red
+                                        )
+                                        
+                                        ModernStatCard(
+                                            title: "Рефералы",
+                                            value: "\(user.invitedFriends.count)",
+                                            icon: "person.2.fill",
+                                            color: .orange
+                                        )
+                                        
+                                        ModernStatCard(
+                                            title: "Заработано",
+                                            value: "\(Int(user.totalEarnings)) ₽",
+                                            icon: "chart.line.uptrend.xyaxis",
+                                            color: .green
+                                        )
+                                        
+                                        ModernStatCard(
+                                            title: "Код",
+                                            value: user.referralCode,
+                                            icon: "qrcode",
+                                            color: .blue
+                                        )
+                                    }
+                                }
+                                .padding(20)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color(.systemBackground))
+                                        .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                                )
+                                
+                                // Кнопка выхода
+                                Button(action: {
+                                    authManager.logout()
+                                }) {
+                                    HStack(spacing: 12) {
+                                        Image(systemName: "arrow.right.square")
+                                            .font(.title3)
+                                        
+                                        Text("Выйти из аккаунта")
+                                            .font(.headline)
+                                            .fontWeight(.semibold)
+                                    }
+                                    .foregroundColor(.red)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 16)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .fill(Color.red.opacity(0.1))
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 12)
+                                                    .stroke(Color.red.opacity(0.3), lineWidth: 1)
+                                            )
+                                    )
+                                }
+                            }
+                        } else {
+                            // Гостевой режим
+                            VStack(spacing: 24) {
+                                // Профильная карточка гостя
+                                VStack(spacing: 20) {
+                                    // Аватар гостя
+                                    ZStack {
+                                        Circle()
+                                            .fill(Color.gray.opacity(0.3))
+                                            .frame(width: 80, height: 80)
+                                        
+                                        Text("Г")
+                                            .font(.system(size: 32, weight: .bold))
+                                            .foregroundColor(.gray)
+                                    }
+                                    
+                                    VStack(spacing: 8) {
+                                        Text("Гость")
+                                            .font(.title2)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.primary)
+                                        
+                                        Text("Войдите для полного доступа")
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                        
+                                        HStack(spacing: 6) {
+                                            Circle()
+                                                .fill(Color.orange)
+                                                .frame(width: 6, height: 6)
+                                            Text("Ограниченный доступ")
+                                                .font(.caption)
+                                                .fontWeight(.medium)
+                                                .foregroundColor(.orange)
+                                        }
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 4)
+                                        .background(
+                                            Capsule()
+                                                .fill(Color.orange.opacity(0.1))
+                                        )
+                                    }
+                                }
+                                .padding(24)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color(.systemBackground))
+                                        .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                                )
+                                
+                                // Доступные функции
+                                VStack(spacing: 16) {
+                                    Text("Доступные функции")
+                                        .font(.headline)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.primary)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    
+                                    LazyVGrid(columns: [
+                                        GridItem(.flexible()),
+                                        GridItem(.flexible())
+                                    ], spacing: 12) {
+                                        ModernFeatureCard(
                                             title: "Концерты",
                                             subtitle: "Просмотр афиш",
                                             icon: "music.note.house.fill",
-                                            gradient: [.green, .mint],
+                                            color: .green,
                                             isAvailable: true
                                         )
                                         
-                                        PremiumFeatureCard(
+                                        ModernFeatureCard(
                                             title: "Партнеры",
                                             subtitle: "Список партнеров",
                                             icon: "person.2.fill",
-                                            gradient: [.blue, .cyan],
+                                            color: .blue,
                                             isAvailable: true
                                         )
                                         
-                                        PremiumFeatureCard(
+                                        ModernFeatureCard(
                                             title: "Трансляции",
                                             subtitle: "Ограниченный просмотр",
                                             icon: "play.circle.fill",
-                                            gradient: [.orange, .yellow],
+                                            color: .orange,
                                             isAvailable: false
                                         )
                                         
-                                        PremiumFeatureCard(
+                                        ModernFeatureCard(
                                             title: "Чаты",
                                             subtitle: "Требуется вход",
                                             icon: "message.fill",
-                                            gradient: [.purple, .pink],
+                                            color: .purple,
                                             isAvailable: false
                                         )
                                     }
                                 }
-                                .padding(.horizontal)
+                                .padding(20)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color(.systemBackground))
+                                        .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                                )
                                 
-                                // Элитная кнопка входа
+                                // Кнопка входа
                                 Button(action: {
                                     showingLogin = true
                                 }) {
                                     HStack(spacing: 12) {
-                                        Image(systemName: "person.circle.fill")
+                                        Image(systemName: "person.circle")
                                             .font(.title3)
                                         
                                         Text("Войти в аккаунт")
                                             .font(.headline)
-                                            .fontWeight(.bold)
+                                            .fontWeight(.semibold)
                                     }
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 16)
                                     .background(
-                                        ZStack {
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .fill(
-                                                    LinearGradient(
-                                                        gradient: Gradient(colors: [.purple, .blue]),
-                                                        startPoint: .leading,
-                                                        endPoint: .trailing
-                                                    )
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .fill(
+                                                LinearGradient(
+                                                    gradient: Gradient(colors: [.red, .orange]),
+                                                    startPoint: .leading,
+                                                    endPoint: .trailing
                                                 )
-                                            
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .fill(
-                                                    LinearGradient(
-                                                        gradient: Gradient(colors: [
-                                                            Color.white.opacity(0.2),
-                                                            Color.clear
-                                                        ]),
-                                                        startPoint: .topLeading,
-                                                        endPoint: .bottomTrailing
-                                                    )
-                                                )
-                                        }
+                                            )
                                     )
-                                    .shadow(color: .purple.opacity(0.3), radius: 10, x: 0, y: 5)
                                 }
-                                .padding(.horizontal)
                             }
                         }
                     }
@@ -427,166 +294,85 @@ struct ProfileView: View {
     }
 }
 
-struct PremiumStatCard: View {
+struct ModernStatCard: View {
     let title: String
     let value: String
     let icon: String
-    let gradient: [Color]
-    @State private var isPressed = false
-    
-    var body: some View {
-        Button(action: {}) {
-            VStack(spacing: 12) {
-                ZStack {
-                    Circle()
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: gradient),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .frame(width: 50, height: 50)
-                        .shadow(color: gradient.first?.opacity(0.3) ?? .clear, radius: 8, x: 0, y: 4)
-                    
-                    Image(systemName: icon)
-                        .font(.title2)
-                        .foregroundColor(.white)
-                }
-                
-                VStack(spacing: 4) {
-                    Text(value)
-                        .font(.title2)
-                        .fontWeight(.black)
-                        .foregroundColor(.white)
-                    
-                    Text(title)
-                        .font(.caption)
-                        .fontWeight(.medium)
-                        .foregroundColor(.white.opacity(0.8))
-                        .multilineTextAlignment(.center)
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 20)
-            .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    gradient.first?.opacity(0.9) ?? .purple,
-                                    gradient.last?.opacity(0.7) ?? .blue
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                    
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    Color.white.opacity(0.1),
-                                    Color.clear
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                    
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
-                }
-            )
-            .shadow(color: gradient.first?.opacity(0.2) ?? .purple, radius: 10, x: 0, y: 5)
-        }
-        .buttonStyle(PlainButtonStyle())
-        .scaleEffect(isPressed ? 0.95 : 1.0)
-        .animation(.easeInOut(duration: 0.1), value: isPressed)
-        .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
-            isPressed = pressing
-        }, perform: {})
-    }
-}
-
-struct PremiumFeatureCard: View {
-    let title: String
-    let subtitle: String
-    let icon: String
-    let gradient: [Color]
-    let isAvailable: Bool
-    @State private var isPressed = false
+    let color: Color
     
     var body: some View {
         VStack(spacing: 12) {
             ZStack {
                 Circle()
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: isAvailable ? gradient : [.gray, .gray.opacity(0.7)]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .frame(width: 50, height: 50)
-                    .shadow(color: isAvailable ? (gradient.first?.opacity(0.3) ?? .clear) : .gray.opacity(0.3), radius: 8, x: 0, y: 4)
+                    .fill(color.opacity(0.1))
+                    .frame(width: 40, height: 40)
                 
                 Image(systemName: icon)
-                    .font(.title2)
-                    .foregroundColor(.white)
+                    .font(.title3)
+                    .foregroundColor(color)
+            }
+            
+            VStack(spacing: 4) {
+                Text(value)
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                
+                Text(title)
+                    .font(.caption)
+                    .fontWeight(.medium)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 16)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color(.systemGray6))
+        )
+    }
+}
+
+struct ModernFeatureCard: View {
+    let title: String
+    let subtitle: String
+    let icon: String
+    let color: Color
+    let isAvailable: Bool
+    
+    var body: some View {
+        VStack(spacing: 12) {
+            ZStack {
+                Circle()
+                    .fill(isAvailable ? color.opacity(0.1) : Color.gray.opacity(0.1))
+                    .frame(width: 40, height: 40)
+                
+                Image(systemName: icon)
+                    .font(.title3)
+                    .foregroundColor(isAvailable ? color : .gray)
             }
             
             VStack(spacing: 4) {
                 Text(title)
                     .font(.headline)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundColor(isAvailable ? .primary : .gray)
                 
                 Text(subtitle)
                     .font(.caption)
                     .fontWeight(.medium)
-                    .foregroundColor(.white.opacity(0.7))
+                    .foregroundColor(isAvailable ? .secondary : .gray)
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 20)
+        .padding(.vertical, 16)
         .background(
-            ZStack {
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: isAvailable ? [
-                                gradient.first?.opacity(0.9) ?? .purple,
-                                gradient.last?.opacity(0.7) ?? .blue
-                            ] : [
-                                Color.gray.opacity(0.9),
-                                Color.gray.opacity(0.7)
-                            ]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [
-                                Color.white.opacity(0.1),
-                                Color.clear
-                            ]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.white.opacity(0.2), lineWidth: 1)
-            }
+            RoundedRectangle(cornerRadius: 12)
+                .fill(isAvailable ? Color(.systemGray6) : Color.gray.opacity(0.1))
         )
-        .shadow(color: isAvailable ? gradient.first?.opacity(0.2) ?? .purple : .gray.opacity(0.2), radius: 10, x: 0, y: 5)
         .opacity(isAvailable ? 1.0 : 0.6)
     }
 }

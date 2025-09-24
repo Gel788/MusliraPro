@@ -11,11 +11,12 @@ struct HomeView: View {
     @EnvironmentObject var authManager: AuthenticationManager
     @State private var selectedStream: StreamItem?
     @State private var currentTime = Date()
+    @State private var isLiveStreamActive = true
     
     let streams = [
         StreamItem(
-            title: "🔥 Электронная ночь в Москве",
-            artist: "DJ Muslira & Friends",
+            title: "🔥 Прямой эфир: Электронная ночь",
+            artist: "DJ Муз Лира",
             isLive: true,
             viewers: 2847,
             imageURL: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=300&fit=crop",
@@ -50,12 +51,13 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Премиальный градиентный фон
+                // Неоновый градиентный фон "Муз Лира"
                 LinearGradient(
                     gradient: Gradient(colors: [
                         Color.black,
-                        Color.purple.opacity(0.1),
-                        Color.blue.opacity(0.05)
+                        Color.red.opacity(0.15),
+                        Color.orange.opacity(0.1),
+                        Color.yellow.opacity(0.05)
                     ]),
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
@@ -76,11 +78,11 @@ struct HomeView: View {
                                             .foregroundColor(.white.opacity(0.9))
                                     }
                                     
-                                    Text("MusliraPro")
+                                    Text("Муз Лира")
                                         .font(.system(size: 36, weight: .black, design: .rounded))
                                         .foregroundStyle(
                                             LinearGradient(
-                                                gradient: Gradient(colors: [.white, .purple.opacity(0.8)]),
+                                                gradient: Gradient(colors: [.white, .red, .orange]),
                                                 startPoint: .leading,
                                                 endPoint: .trailing
                                             )
@@ -148,19 +150,19 @@ struct HomeView: View {
                             .padding(.vertical, 24)
                             .background(
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 24)
-                                        .fill(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: [
-                                                    Color.purple.opacity(0.9),
-                                                    Color.blue.opacity(0.8),
-                                                    Color.pink.opacity(0.7),
-                                                    Color.orange.opacity(0.6)
-                                                ]),
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
+                                        RoundedRectangle(cornerRadius: 24)
+                                            .fill(
+                                                LinearGradient(
+                                                    gradient: Gradient(colors: [
+                                                        Color.red.opacity(0.9),
+                                                        Color.orange.opacity(0.8),
+                                                        Color.yellow.opacity(0.7),
+                                                        Color.red.opacity(0.6)
+                                                    ]),
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing
+                                                )
                                             )
-                                        )
                                     
                                     // Премиальные блики
                                     RoundedRectangle(cornerRadius: 24)
@@ -177,22 +179,22 @@ struct HomeView: View {
                                         )
                                 }
                             )
-                            .shadow(color: .purple.opacity(0.3), radius: 20, x: 0, y: 10)
+                            .shadow(color: .red.opacity(0.4), radius: 20, x: 0, y: 10)
                             .padding(.horizontal)
                         }
                         
-                        // Премиальная секция трансляций
+                        // Неоновая секция трансляций
                         VStack(alignment: .leading, spacing: 20) {
                             HStack {
                                 HStack(spacing: 8) {
-                                    Text("🎬")
+                                    Text("🔥")
                                         .font(.title2)
-                                    Text("Видео трансляции")
+                                    Text("Прямой эфир")
                                         .font(.title2)
                                         .fontWeight(.black)
                                         .foregroundStyle(
                                             LinearGradient(
-                                                gradient: Gradient(colors: [.primary, .purple]),
+                                                gradient: Gradient(colors: [.red, .orange]),
                                                 startPoint: .leading,
                                                 endPoint: .trailing
                                             )
@@ -202,13 +204,10 @@ struct HomeView: View {
                                 Spacer()
                                 
                                 Button(action: {
-                                    // Переход к видео трансляциям
-                                    if let url = URL(string: "https://muslirapro.com/streams") {
-                                        UIApplication.shared.open(url)
-                                    }
+                                    // Переход к видеоархиву
                                 }) {
                                     HStack(spacing: 6) {
-                                        Text("Все трансляции")
+                                        Text("Видеоархив")
                                             .font(.subheadline)
                                             .fontWeight(.semibold)
                                         Image(systemName: "arrow.right")
@@ -221,7 +220,7 @@ struct HomeView: View {
                                         RoundedRectangle(cornerRadius: 20)
                                             .fill(
                                                 LinearGradient(
-                                                    gradient: Gradient(colors: [.purple, .blue]),
+                                                    gradient: Gradient(colors: [.red, .orange]),
                                                     startPoint: .leading,
                                                     endPoint: .trailing
                                                 )
@@ -243,7 +242,7 @@ struct HomeView: View {
                             }
                         }
                         
-                        // Элитные быстрые действия
+                        // Неоновые быстрые действия
                         VStack(alignment: .leading, spacing: 20) {
                             HStack {
                                 HStack(spacing: 8) {
@@ -254,7 +253,7 @@ struct HomeView: View {
                                         .fontWeight(.black)
                                         .foregroundStyle(
                                             LinearGradient(
-                                                gradient: Gradient(colors: [.primary, .purple]),
+                                                gradient: Gradient(colors: [.red, .orange]),
                                                 startPoint: .leading,
                                                 endPoint: .trailing
                                             )
@@ -273,8 +272,8 @@ struct HomeView: View {
                                     title: "💬 Чат поддержки",
                                     subtitle: "Помощь 24/7",
                                     icon: "headphones",
-                                    gradient: [Color.blue, Color.cyan],
-                                    accentColor: .blue
+                                    gradient: [Color.red, Color.orange],
+                                    accentColor: .red
                                 ) {
                                     // Переход к чату поддержки
                                 }
@@ -283,33 +282,30 @@ struct HomeView: View {
                                     title: "🎵 Чат музыкантов",
                                     subtitle: "Общение с коллегами",
                                     icon: "music.note",
-                                    gradient: [Color.green, Color.mint],
-                                    accentColor: .green
+                                    gradient: [Color.orange, Color.yellow],
+                                    accentColor: .orange
                                 ) {
                                     // Переход к чату музыкантов
                                 }
                                 
                                 PremiumQuickActionCard(
-                                    title: "🎫 Концерты",
-                                    subtitle: "Ближайшие события",
-                                    icon: "music.note.house",
-                                    gradient: [Color.orange, Color.yellow],
-                                    accentColor: .orange
+                                    title: "📹 Видеоархив",
+                                    subtitle: "Загруженные выступления",
+                                    icon: "video.fill",
+                                    gradient: [Color.yellow, Color.red],
+                                    accentColor: .yellow
                                 ) {
-                                    // Переход к концертам
+                                    // Переход к видеоархиву
                                 }
                                 
                                 PremiumQuickActionCard(
-                                    title: "👑 Подписка",
-                                    subtitle: "Премиум доступ",
-                                    icon: "crown.fill",
-                                    gradient: [Color.purple, Color.pink],
-                                    accentColor: .purple
+                                    title: "💰 Баланс",
+                                    subtitle: "Виртуальная валюта",
+                                    icon: "dollarsign.circle.fill",
+                                    gradient: [Color.red, Color.pink],
+                                    accentColor: .red
                                 ) {
-                                    // Переход к подписке
-                                    if let url = URL(string: "https://muslirapro.com/subscription") {
-                                        UIApplication.shared.open(url)
-                                    }
+                                    // Переход к личному кабинету
                                 }
                             }
                             .padding(.horizontal, 24)
@@ -318,7 +314,7 @@ struct HomeView: View {
                     .padding(.vertical)
                 }
             }
-            .navigationTitle("MusliraPro")
+            .navigationTitle("Муз Лира")
             .navigationBarTitleDisplayMode(.large)
         }
         .sheet(item: $selectedStream) { stream in

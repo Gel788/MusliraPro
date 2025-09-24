@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Муз Лира Pro - Музыкальная платформа нового поколения</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Экран приветствия -->
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <div class="welcome-logo">
+                <div class="logo-container">
+                    <div class="logo-text">
+                        <div class="logo-main">Муз</div>
+                        <div class="logo-main">Лира</div>
+                        <div class="logo-pro">Pro</div>
+                    </div>
+                </div>
+            </div>
+            <div class="welcome-text">
+                <h1>Музыкальная платформа</h1>
+                <h2>нового поколения</h2>
+            </div>
+            <div class="welcome-description">
+                <p>Добро пожаловать в мир музыки!</p>
+                <p>Трансляции • Артисты • Партнеры • Сообщество</p>
+            </div>
+            <button class="welcome-button" onclick="startApp()">
+                <span>Начать</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="welcome-signature">
+            <p>By Anna Simonyan</p>
+            <p>© 2025 Muslira Pro</p>
+        </div>
+    </div>
+
+    <!-- Основное приложение -->
+    <div id="main-app" class="main-app" style="display: none;">
+        <!-- Навигация -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-text">Муз Лира</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#home" class="nav-link active" data-section="home">Главная</a>
+                    <a href="#archive" class="nav-link" data-section="archive">Видеоархив</a>
+                    <a href="#artists" class="nav-link" data-section="artists">Артисты</a>
+                    <a href="#partners" class="nav-link" data-section="partners">Партнеры</a>
+                    <a href="#profile" class="nav-link" data-section="profile">Профиль</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Главная страница -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Муз Лира</h1>
+                    <p>Музыкальная платформа нового поколения</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Артистов</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Партнеров</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Пользователей</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <div class="action-card" onclick="showSection('archive')">
+                    <div class="action-icon">📹</div>
+                    <h3>Видеоархив</h3>
+                    <p>Загруженные выступления</p>
+                </div>
+                <div class="action-card" onclick="showSection('artists')">
+                    <div class="action-icon">🎤</div>
+                    <h3>Артисты</h3>
+                    <p>Музыканты и исполнители</p>
+                </div>
+                <div class="action-card" onclick="showSection('partners')">
+                    <div class="action-icon">🤝</div>
+                    <h3>Партнеры</h3>
+                    <p>Бизнес-партнеры</p>
+                </div>
+                <div class="action-card" onclick="showSection('profile')">
+                    <div class="action-icon">👤</div>
+                    <h3>Профиль</h3>
+                    <p>Личный кабинет</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Видеоархив -->
+        <section id="archive" class="section">
+            <div class="section-header">
+                <h2>📹 Видеоархив</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="🔍 Поиск видео..." id="video-search">
+                </div>
+            </div>
+            <div class="video-grid" id="video-grid">
+                <!-- Видео будут загружены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Артисты -->
+        <section id="artists" class="section">
+            <div class="section-header">
+                <h2>🎤 Артисты</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="🔍 Поиск артистов..." id="artist-search">
+                </div>
+            </div>
+            <div class="artist-grid" id="artist-grid">
+                <!-- Артисты будут загружены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Партнеры -->
+        <section id="partners" class="section">
+            <div class="section-header">
+                <h2>🤝 Партнеры</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="🔍 Поиск партнеров..." id="partner-search">
+                </div>
+            </div>
+            <div class="partner-grid" id="partner-grid">
+                <!-- Партнеры будут загружены через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Профиль -->
+        <section id="profile" class="section">
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle">
+                            <span>U</span>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <h2>Пользователь</h2>
+                        <p>user@example.com</p>
+                        <div class="status-badge">
+                            <span class="status-dot"></span>
+                            <span>Онлайн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0 ₽</span>
+                            <span class="stat-label">Баланс</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0</span>
+                            <span class="stat-label">Рефералы</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-content">
+                            <span class="stat-value">0 ₽</span>
+                            <span class="stat-label">Заработано</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔑</div>
+                        <div class="stat-content">
+                            <span class="stat-value">ABC123</span>
+                            <span class="stat-label">Код</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="action-button primary">Редактировать профиль</button>
+                    <button class="action-button secondary">Настройки</button>
+                    <button class="action-button danger">Выйти</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

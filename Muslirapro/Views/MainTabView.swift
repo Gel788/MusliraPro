@@ -20,17 +20,17 @@ struct MainTabView: View {
                 }
                 .tag(0)
             
-            ConcertsView()
+            VideoArchiveView()
                 .tabItem {
-                    Image(systemName: "music.note.house.fill")
-                    Text("Концерты")
+                    Image(systemName: "video.fill")
+                    Text("Видеоархив")
                 }
                 .tag(1)
             
-            ChatListView()
+            ArtistsView()
                 .tabItem {
-                    Image(systemName: "message.fill")
-                    Text("Чаты")
+                    Image(systemName: "music.note.house.fill")
+                    Text("Артисты")
                 }
                 .tag(2)
             
@@ -44,11 +44,11 @@ struct MainTabView: View {
             ProfileView()
                 .tabItem {
                     Image(systemName: "person.circle.fill")
-                    Text("Профиль")
+                    Text("Личный кабинет")
                 }
                 .tag(4)
         }
-        .accentColor(.purple)
+        .accentColor(.red)
         .environmentObject(authManager)
     }
 }

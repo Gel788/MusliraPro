@@ -49,14 +49,14 @@ struct LoginView: View {
                 // Форма входа/регистрации
                 VStack(spacing: 20) {
                     if !isLoginMode {
-                        CustomTextField(
+                        LoginTextField(
                             text: $username,
                             placeholder: "Имя пользователя",
                             icon: "person.fill"
                         )
                     }
                     
-                    CustomTextField(
+                    LoginTextField(
                         text: $email,
                         placeholder: "Email",
                         icon: "envelope.fill"
@@ -64,7 +64,7 @@ struct LoginView: View {
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
                     
-                    CustomTextField(
+                    LoginTextField(
                         text: $password,
                         placeholder: "Пароль",
                         icon: "lock.fill",
@@ -117,7 +117,7 @@ struct LoginView: View {
     }
 }
 
-struct CustomTextField: View {
+struct LoginTextField: View {
     @Binding var text: String
     let placeholder: String
     let icon: String

@@ -12,8 +12,10 @@ struct User: Identifiable, Codable {
     var username: String
     var email: String
     var profileImage: String?
-    var isSubscribed: Bool
-    var subscriptionType: SubscriptionType?
+    var balance: Double
+    var referralCode: String
+    var invitedFriends: [ReferralFriend]
+    var totalEarnings: Double
     var joinDate: Date
     
     init(username: String, email: String, profileImage: String? = nil) {
@@ -21,9 +23,32 @@ struct User: Identifiable, Codable {
         self.username = username
         self.email = email
         self.profileImage = profileImage
-        self.isSubscribed = false
-        self.subscriptionType = nil
+        self.balance = 0.0
+        self.referralCode = String.randomString(length: 8)
+        self.invitedFriends = []
+        self.totalEarnings = 0.0
         self.joinDate = Date()
+    }
+}
+
+struct ReferralFriend: Identifiable, Codable {
+    let id: UUID
+    var username: String
+    var joinDate: Date
+    var earnings: Double
+    
+    init(username: String) {
+        self.id = UUID()
+        self.username = username
+        self.joinDate = Date()
+        self.earnings = 0.0
+    }
+}
+
+extension String {
+    static func randomString(length: Int) -> String {
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
     }
 }
 

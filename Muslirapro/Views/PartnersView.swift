@@ -10,6 +10,7 @@ import SwiftUI
 struct PartnersView: View {
     @State private var searchText = ""
     @State private var selectedCategory: PartnerCategory? = nil
+    @State private var selectedPartner: Partner?
     
     let partners = [
         Partner(
@@ -70,12 +71,12 @@ struct PartnersView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Премиальный градиентный фон
+                // Неоновый градиентный фон
                 LinearGradient(
                     gradient: Gradient(colors: [
                         Color.black,
-                        Color.purple.opacity(0.1),
-                        Color.blue.opacity(0.05)
+                        Color.red.opacity(0.1),
+                        Color.orange.opacity(0.05)
                     ]),
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
@@ -96,7 +97,7 @@ struct PartnersView: View {
                                             .fontWeight(.black)
                                             .foregroundStyle(
                                                 LinearGradient(
-                                                    gradient: Gradient(colors: [.white, .purple.opacity(0.8)]),
+                                                    gradient: Gradient(colors: [.white, .red.opacity(0.8)]),
                                                     startPoint: .leading,
                                                     endPoint: .trailing
                                                 )
@@ -136,18 +137,18 @@ struct PartnersView: View {
                             .padding(.vertical, 24)
                             .background(
                                 ZStack {
-                                    RoundedRectangle(cornerRadius: 24)
-                                        .fill(
-                                            LinearGradient(
-                                                gradient: Gradient(colors: [
-                                                    Color.purple.opacity(0.9),
-                                                    Color.blue.opacity(0.8),
-                                                    Color.pink.opacity(0.7)
-                                                ]),
-                                                startPoint: .topLeading,
-                                                endPoint: .bottomTrailing
+                                        RoundedRectangle(cornerRadius: 24)
+                                            .fill(
+                                                LinearGradient(
+                                                    gradient: Gradient(colors: [
+                                                        Color.red.opacity(0.9),
+                                                        Color.orange.opacity(0.8),
+                                                        Color.yellow.opacity(0.7)
+                                                    ]),
+                                                    startPoint: .topLeading,
+                                                    endPoint: .bottomTrailing
+                                                )
                                             )
-                                        )
                                     
                                     RoundedRectangle(cornerRadius: 24)
                                         .fill(
@@ -163,7 +164,7 @@ struct PartnersView: View {
                                         )
                                 }
                             )
-                            .shadow(color: .purple.opacity(0.3), radius: 20, x: 0, y: 10)
+                            .shadow(color: .red.opacity(0.3), radius: 20, x: 0, y: 10)
                             .padding(.horizontal)
                         }
                         
@@ -208,7 +209,7 @@ struct PartnersView: View {
                                         title: "Все",
                                         icon: "star.fill",
                                         isSelected: selectedCategory == nil,
-                                        gradient: [.purple, .blue]
+                                        gradient: [.red, .orange]
                                     ) {
                                         selectedCategory = nil
                                     }
@@ -238,7 +239,9 @@ struct PartnersView: View {
                         } else {
                             LazyVStack(spacing: 16) {
                                 ForEach(filteredPartners) { partner in
-                                    PremiumPartnerCard(partner: partner)
+                                    PremiumPartnerCard(partner: partner) {
+                                        selectedPartner = partner
+                                    }
                                 }
                             }
                             .padding(.horizontal)
@@ -249,6 +252,9 @@ struct PartnersView: View {
             }
             .navigationTitle("Партнеры")
             .navigationBarTitleDisplayMode(.large)
+        }
+        .sheet(item: $selectedPartner) { partner in
+            PartnerDetailView(partner: partner)
         }
     }
     
@@ -264,11 +270,11 @@ struct PartnersView: View {
     
     func colorForCategory(_ category: PartnerCategory) -> Color {
         switch category {
-        case .music: return .purple
+        case .music: return .red
         case .equipment: return .orange
-        case .venue: return .red
-        case .media: return .blue
-        case .other: return .green
+        case .venue: return .yellow
+        case .media: return .pink
+        case .other: return .gray
         }
     }
 }
@@ -340,128 +346,127 @@ struct PremiumFilterButton: View {
 
 struct PremiumPartnerCard: View {
     let partner: Partner
+    let onTap: () -> Void
     @State private var isPressed = false
     
     var body: some View {
-        Button(action: {
-            if let url = URL(string: partner.websiteURL ?? "") {
-                UIApplication.shared.open(url)
-            }
-        }) {
-            HStack(spacing: 20) {
-                // Премиальный логотип
+        Button(action: onTap) {
+            VStack(spacing: 0) {
+                // Современная карточка партнера
                 ZStack {
-                    AsyncImage(url: URL(string: partner.logoURL ?? "")) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    } placeholder: {
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [
-                                        colorForCategory(partner.category).opacity(0.8),
-                                        colorForCategory(partner.category).opacity(0.6)
-                                    ]),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
+                    // Основной контейнер
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color(.systemBackground))
+                        .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                        .shadow(color: .black.opacity(0.05), radius: 2, x: 0, y: 1)
+                    
+                    VStack(spacing: 0) {
+                        // Логотип партнера
+                        ZStack {
+                            AsyncImage(url: URL(string: partner.logoURL ?? "")) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            } placeholder: {
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [
+                                                colorForCategory(partner.category).opacity(0.8),
+                                                colorForCategory(partner.category).opacity(0.6)
+                                            ]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                    )
+                            }
+                            .frame(height: 120)
+                            .clipShape(
+                                UnevenRoundedRectangle(
+                                    topLeadingRadius: 16,
+                                    bottomLeadingRadius: 0,
+                                    bottomTrailingRadius: 0,
+                                    topTrailingRadius: 16
                                 )
                             )
-                    }
-                    .frame(width: 80, height: 80)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 16)
-                            .stroke(Color.white.opacity(0.2), lineWidth: 2)
-                    )
-                    .shadow(color: colorForCategory(partner.category).opacity(0.3), radius: 10, x: 0, y: 5)
-                }
-                
-                VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        Text(partner.name)
-                            .font(.title3)
-                            .fontWeight(.black)
-                            .foregroundColor(.white)
-                            .lineLimit(1)
-                        
-                        Spacer()
-                        
-                        Image(systemName: "arrow.up.right.square.fill")
-                            .font(.title3)
-                            .foregroundColor(.white.opacity(0.7))
-                    }
-                    
-                    Text(partner.description)
-                        .font(.subheadline)
-                        .foregroundColor(.white.opacity(0.8))
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
-                    
-                    HStack {
-                        HStack(spacing: 8) {
-                            Image(systemName: iconForCategory(partner.category))
-                                .font(.caption)
-                                .foregroundColor(.white)
                             
-                            Text(partner.category.displayName)
-                                .font(.caption)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
+                            // Категория в углу
+                            VStack {
+                                HStack {
+                                    Spacer()
+                                    Text(partner.category.displayName)
+                                        .font(.caption2)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 4)
+                                        .background(
+                                            Capsule()
+                                                .fill(Color.black.opacity(0.7))
+                                        )
+                                }
+                                Spacer()
+                            }
+                            .padding(12)
                         }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.white.opacity(0.2))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                                )
-                        )
                         
-                        Spacer()
+                        // Информационная панель
+                        VStack(alignment: .leading, spacing: 16) {
+                            // Название и кнопка
+                            HStack {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(partner.name)
+                                        .font(.headline)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.primary)
+                                        .lineLimit(1)
+                                    
+                                    Text(partner.category.displayName)
+                                        .font(.caption)
+                                        .fontWeight(.medium)
+                                        .foregroundColor(.secondary)
+                                }
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    if let websiteURL = partner.websiteURL, let url = URL(string: websiteURL) {
+                                        UIApplication.shared.open(url)
+                                    }
+                                }) {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "arrow.up.right")
+                                            .font(.caption)
+                                        Text("Сайт")
+                                            .font(.caption)
+                                            .fontWeight(.medium)
+                                    }
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 4)
+                                    .background(
+                                        Capsule()
+                                            .fill(colorForCategory(partner.category))
+                                    )
+                                }
+                            }
+                            
+                            // Описание
+                            Text(partner.description)
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                                .lineLimit(3)
+                                .multilineTextAlignment(.leading)
+                        }
+                        .padding(20)
+                        .background(Color(.systemGray6))
                     }
                 }
             }
-            .padding(24)
-            .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    colorForCategory(partner.category).opacity(0.9),
-                                    colorForCategory(partner.category).opacity(0.7),
-                                    colorForCategory(partner.category).opacity(0.5)
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [
-                                    Color.white.opacity(0.1),
-                                    Color.clear,
-                                    Color.white.opacity(0.05)
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                    
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
-                }
-            )
-            .shadow(color: colorForCategory(partner.category).opacity(0.3), radius: 15, x: 0, y: 8)
         }
         .buttonStyle(PlainButtonStyle())
         .scaleEffect(isPressed ? 0.98 : 1.0)
-        .animation(.easeInOut(duration: 0.1), value: isPressed)
+        .animation(.easeInOut(duration: 0.15), value: isPressed)
         .onLongPressGesture(minimumDuration: 0, maximumDistance: .infinity, pressing: { pressing in
             isPressed = pressing
         }, perform: {})
@@ -479,11 +484,11 @@ struct PremiumPartnerCard: View {
     
     func colorForCategory(_ category: PartnerCategory) -> Color {
         switch category {
-        case .music: return .purple
+        case .music: return .red
         case .equipment: return .orange
-        case .venue: return .red
-        case .media: return .blue
-        case .other: return .green
+        case .venue: return .yellow
+        case .media: return .pink
+        case .other: return .gray
         }
     }
 }
@@ -499,7 +504,7 @@ struct PremiumEmptyState: View {
                 Circle()
                     .fill(
                         LinearGradient(
-                            gradient: Gradient(colors: [.purple.opacity(0.3), .blue.opacity(0.2)]),
+                            gradient: Gradient(colors: [.red.opacity(0.3), .orange.opacity(0.2)]),
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
@@ -510,7 +515,7 @@ struct PremiumEmptyState: View {
                     .font(.system(size: 50))
                     .foregroundStyle(
                         LinearGradient(
-                            gradient: Gradient(colors: [.purple, .blue]),
+                            gradient: Gradient(colors: [.red, .orange]),
                             startPoint: .leading,
                             endPoint: .trailing
                         )
