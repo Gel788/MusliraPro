@@ -15,17 +15,43 @@ struct WelcomeView: View {
     
     var body: some View {
         ZStack {
-            // Современный градиентный фон
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color.black,
-                    Color.red.opacity(0.1),
-                    Color.orange.opacity(0.05)
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            // Элегантный градиентный фон
+            ZStack {
+                // Основной градиент
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color.black,
+                        Color(red: 0.05, green: 0.05, blue: 0.1),
+                        Color(red: 0.1, green: 0.05, blue: 0.15)
+                    ]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
+                
+                // Элегантные блики
+                RadialGradient(
+                    gradient: Gradient(colors: [
+                        Color.red.opacity(0.1),
+                        Color.clear
+                    ]),
+                    center: .topTrailing,
+                    startRadius: 100,
+                    endRadius: 400
+                )
+                .ignoresSafeArea()
+                
+                RadialGradient(
+                    gradient: Gradient(colors: [
+                        Color.orange.opacity(0.05),
+                        Color.clear
+                    ]),
+                    center: .bottomLeading,
+                    startRadius: 150,
+                    endRadius: 500
+                )
+                .ignoresSafeArea()
+            }
             
             VStack(spacing: 0) {
                 Spacer()
@@ -35,43 +61,60 @@ struct WelcomeView: View {
                     // Логотип Muslira
                     VStack(spacing: 20) {
                         ZStack {
-                            // Элитный фон логотипа
-                            RoundedRectangle(cornerRadius: 30)
+                            // Элегантный фон логотипа
+                            RoundedRectangle(cornerRadius: 40)
                                 .fill(
                                     LinearGradient(
                                         gradient: Gradient(colors: [
-                                            Color.red.opacity(0.9),
-                                            Color.orange.opacity(0.8),
-                                            Color.yellow.opacity(0.7)
+                                            Color(red: 0.9, green: 0.1, blue: 0.1),
+                                            Color(red: 0.8, green: 0.3, blue: 0.1),
+                                            Color(red: 0.7, green: 0.5, blue: 0.1)
                                         ]),
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
                                 )
-                                .frame(width: 200, height: 200)
-                                .shadow(color: .red.opacity(0.4), radius: 30, x: 0, y: 15)
+                                .frame(width: 220, height: 220)
+                                .shadow(color: .red.opacity(0.3), radius: 40, x: 0, y: 20)
+                                .shadow(color: .orange.opacity(0.2), radius: 60, x: 0, y: 30)
                             
-                            // Неоновые блики
-                            RoundedRectangle(cornerRadius: 30)
+                            // Элегантные блики
+                            RoundedRectangle(cornerRadius: 40)
                                 .fill(
                                     LinearGradient(
                                         gradient: Gradient(colors: [
-                                            Color.white.opacity(0.2),
+                                            Color.white.opacity(0.15),
                                             Color.clear,
-                                            Color.white.opacity(0.1)
+                                            Color.white.opacity(0.08)
                                         ]),
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
                                 )
-                                .frame(width: 200, height: 200)
+                                .frame(width: 220, height: 220)
+                            
+                            // Дополнительный блик
+                            RoundedRectangle(cornerRadius: 40)
+                                .fill(
+                                    RadialGradient(
+                                        gradient: Gradient(colors: [
+                                            Color.white.opacity(0.1),
+                                            Color.clear
+                                        ]),
+                                        center: .topLeading,
+                                        startRadius: 0,
+                                        endRadius: 100
+                                    )
+                                )
+                                .frame(width: 220, height: 220)
                             
                             // Логотип
                             VStack(spacing: 8) {
                                 Image("Logo")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: 120, height: 120)
+                                    .frame(width: 140, height: 140)
+                                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
                                 
                                 Text("Pro")
                                     .font(.system(size: 18, weight: .bold, design: .rounded))
@@ -119,46 +162,69 @@ struct WelcomeView: View {
                     .opacity(showContent ? 1.0 : 0.0)
                     .animation(.easeInOut(duration: 1.0).delay(1.0), value: showContent)
                     
-                    // Кнопка входа
+                    // Элегантная кнопка входа
                     Button(action: {
                         navigateToMain = true
                     }) {
-                        HStack(spacing: 12) {
+                        HStack(spacing: 16) {
                             Image(systemName: "arrow.right.circle.fill")
                                 .font(.title2)
+                                .foregroundColor(.white)
                             
                             Text("Начать")
-                                .font(.headline)
-                                .fontWeight(.bold)
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
                         }
-                        .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, 40)
                         .background(
                             ZStack {
-                                RoundedRectangle(cornerRadius: 16)
+                                // Основной градиент
+                                RoundedRectangle(cornerRadius: 25)
                                     .fill(
                                         LinearGradient(
-                                            gradient: Gradient(colors: [.red, .orange]),
+                                            gradient: Gradient(colors: [
+                                                Color(red: 0.9, green: 0.2, blue: 0.2),
+                                                Color(red: 0.8, green: 0.4, blue: 0.1)
+                                            ]),
                                             startPoint: .leading,
                                             endPoint: .trailing
                                         )
                                     )
                                 
-                                RoundedRectangle(cornerRadius: 16)
+                                // Элегантный блик
+                                RoundedRectangle(cornerRadius: 25)
                                     .fill(
                                         LinearGradient(
                                             gradient: Gradient(colors: [
                                                 Color.white.opacity(0.2),
-                                                Color.clear
+                                                Color.clear,
+                                                Color.white.opacity(0.1)
                                             ]),
                                             startPoint: .topLeading,
                                             endPoint: .bottomTrailing
                                         )
                                     )
+                                
+                                // Граница
+                                RoundedRectangle(cornerRadius: 25)
+                                    .stroke(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [
+                                                Color.white.opacity(0.3),
+                                                Color.white.opacity(0.1)
+                                            ]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ),
+                                        lineWidth: 1
+                                    )
                             }
                         )
-                        .shadow(color: .red.opacity(0.3), radius: 10, x: 0, y: 5)
+                        .shadow(color: .red.opacity(0.4), radius: 20, x: 0, y: 10)
+                        .shadow(color: .orange.opacity(0.2), radius: 30, x: 0, y: 15)
                     }
                     .opacity(showContent ? 1.0 : 0.0)
                     .animation(.easeInOut(duration: 1.0).delay(1.5), value: showContent)

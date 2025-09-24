@@ -51,18 +51,43 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Неоновый градиентный фон "Муз Лира"
-                LinearGradient(
-                    gradient: Gradient(colors: [
-                        Color.black,
-                        Color.red.opacity(0.15),
-                        Color.orange.opacity(0.1),
-                        Color.yellow.opacity(0.05)
-                    ]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
+                // Элегантный градиентный фон
+                ZStack {
+                    // Основной градиент
+                    LinearGradient(
+                        gradient: Gradient(colors: [
+                            Color.black,
+                            Color(red: 0.05, green: 0.05, blue: 0.1),
+                            Color(red: 0.1, green: 0.05, blue: 0.15)
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .ignoresSafeArea()
+                    
+                    // Элегантные блики
+                    RadialGradient(
+                        gradient: Gradient(colors: [
+                            Color.red.opacity(0.08),
+                            Color.clear
+                        ]),
+                        center: .topTrailing,
+                        startRadius: 100,
+                        endRadius: 300
+                    )
+                    .ignoresSafeArea()
+                    
+                    RadialGradient(
+                        gradient: Gradient(colors: [
+                            Color.orange.opacity(0.05),
+                            Color.clear
+                        ]),
+                        center: .bottomLeading,
+                        startRadius: 150,
+                        endRadius: 400
+                    )
+                    .ignoresSafeArea()
+                }
                 
                 ScrollView {
                     VStack(spacing: 30) {
