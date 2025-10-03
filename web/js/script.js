@@ -41,6 +41,86 @@ const videos = [
         views: 9876,
         date: "Dec 1, 2024",
         category: "Concerts"
+    },
+    {
+        id: 5,
+        title: "Piano Composition Workshop",
+        artist: "Elena Volkova",
+        thumbnail: "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&h=600&fit=crop",
+        duration: "1:45:00",
+        views: 7654,
+        date: "Nov 28, 2024",
+        category: "Masterclass"
+    },
+    {
+        id: 6,
+        title: "Rock Festival Highlights 2024",
+        artist: "The Warriors",
+        thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
+        duration: "3:20:45",
+        views: 25300,
+        date: "Nov 25, 2024",
+        category: "Concerts"
+    },
+    {
+        id: 7,
+        title: "Behind the Scenes: Studio Life",
+        artist: "Alex Storm",
+        thumbnail: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&h=600&fit=crop",
+        duration: "28:15",
+        views: 5432,
+        date: "Nov 22, 2024",
+        category: "Interviews"
+    },
+    {
+        id: 8,
+        title: "Music Production Basics",
+        artist: "DJ Muslira",
+        thumbnail: "https://images.unsplash.com/photo-1571330735066-03aaa9429dba?w=800&h=600&fit=crop",
+        duration: "2:10:30",
+        views: 11890,
+        date: "Nov 20, 2024",
+        category: "Masterclass"
+    },
+    {
+        id: 9,
+        title: "Classical Evening with Orchestra",
+        artist: "Elena Volkova",
+        thumbnail: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=800&h=600&fit=crop",
+        duration: "2:35:20",
+        views: 18750,
+        date: "Nov 18, 2024",
+        category: "Concerts"
+    },
+    {
+        id: 10,
+        title: "Pop Star Journey: From Zero to Hero",
+        artist: "Maria Johnson",
+        thumbnail: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&h=600&fit=crop",
+        duration: "52:40",
+        views: 14230,
+        date: "Nov 15, 2024",
+        category: "Interviews"
+    },
+    {
+        id: 11,
+        title: "Hip-Hop Songwriting Workshop",
+        artist: "Alex Storm",
+        thumbnail: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&h=600&fit=crop",
+        duration: "1:55:00",
+        views: 9340,
+        date: "Nov 12, 2024",
+        category: "Masterclass"
+    },
+    {
+        id: 12,
+        title: "Smooth Jazz Evening",
+        artist: "Sarah Blues",
+        thumbnail: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=800&h=600&fit=crop",
+        duration: "2:05:15",
+        views: 10560,
+        date: "Nov 10, 2024",
+        category: "Concerts"
     }
 ];
 
@@ -99,6 +179,83 @@ const artists = [
         rating: 4.8,
         concerts: 54,
         image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop"
+    },
+    {
+        id: 6,
+        name: "Alex Storm",
+        genre: "Rock",
+        bio: "Hip-hop artist & producer",
+        followers: 78000,
+        verified: true,
+        rating: 4.6,
+        concerts: 29,
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
+    },
+    {
+        id: 7,
+        name: "Lucia Martinez",
+        genre: "Pop",
+        bio: "Latin pop star and songwriter",
+        followers: 187000,
+        verified: true,
+        rating: 4.9,
+        concerts: 56,
+        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop"
+    },
+    {
+        id: 8,
+        name: "Marcus Chen",
+        genre: "Classical",
+        bio: "Virtuoso violinist",
+        followers: 98000,
+        verified: true,
+        rating: 4.8,
+        concerts: 72,
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    },
+    {
+        id: 9,
+        name: "The Neon Tribe",
+        genre: "Electronic",
+        bio: "Future bass collective",
+        followers: 145000,
+        verified: true,
+        rating: 4.7,
+        concerts: 81,
+        image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop"
+    },
+    {
+        id: 10,
+        name: "Nina Rivers",
+        genre: "Jazz",
+        bio: "Contemporary jazz pianist",
+        followers: 67000,
+        verified: true,
+        rating: 4.9,
+        concerts: 43,
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop"
+    },
+    {
+        id: 11,
+        name: "Viktor Stone",
+        genre: "Rock",
+        bio: "Heavy metal guitarist",
+        followers: 210000,
+        verified: true,
+        rating: 4.8,
+        concerts: 95,
+        image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=400&h=400&fit=crop"
+    },
+    {
+        id: 12,
+        name: "Sophie Harmony",
+        genre: "Pop",
+        bio: "Indie pop singer-songwriter",
+        followers: 134000,
+        verified: true,
+        rating: 4.6,
+        concerts: 47,
+        image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop"
     }
 ];
 
@@ -142,6 +299,86 @@ const partners = [
         projects: 5670,
         verified: true,
         image: "https://images.unsplash.com/photo-1571330735066-03aaa9429dba?w=800&h=600&fit=crop"
+    },
+    {
+        id: 5,
+        name: "Berklee Online",
+        category: "Education",
+        description: "Online music education platform",
+        rating: 4.7,
+        projects: 3450,
+        verified: true,
+        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+    },
+    {
+        id: 6,
+        name: "Shure Audio",
+        category: "Equipment",
+        description: "Professional audio equipment",
+        rating: 4.9,
+        projects: 1890,
+        verified: true,
+        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&h=600&fit=crop"
+    },
+    {
+        id: 7,
+        name: "Electric Lady Studios",
+        category: "Studios",
+        description: "Historic NYC recording studio",
+        rating: 4.9,
+        projects: 1567,
+        verified: true,
+        image: "https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&h=600&fit=crop"
+    },
+    {
+        id: 8,
+        name: "Madison Square Garden",
+        category: "Venues",
+        description: "Iconic entertainment venue",
+        rating: 4.8,
+        projects: 3890,
+        verified: true,
+        image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&h=600&fit=crop"
+    },
+    {
+        id: 9,
+        name: "Sony Music",
+        category: "Media",
+        description: "Major record label",
+        rating: 4.7,
+        projects: 4320,
+        verified: true,
+        image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop"
+    },
+    {
+        id: 10,
+        name: "Yamaha Corporation",
+        category: "Equipment",
+        description: "Musical instruments & audio gear",
+        rating: 4.8,
+        projects: 2670,
+        verified: true,
+        image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&h=600&fit=crop"
+    },
+    {
+        id: 11,
+        name: "Red Rocks Amphitheatre",
+        category: "Venues",
+        description: "Natural outdoor concert venue",
+        rating: 5.0,
+        projects: 2100,
+        verified: true,
+        image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&h=600&fit=crop"
+    },
+    {
+        id: 12,
+        name: "Warner Music Group",
+        category: "Media",
+        description: "Global music conglomerate",
+        rating: 4.6,
+        projects: 3980,
+        verified: true,
+        image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=600&fit=crop"
     }
 ];
 
