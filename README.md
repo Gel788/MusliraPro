@@ -1,207 +1,204 @@
-# 🎵 MusliraPro - Элитная Музыкальная Платформа
+# 🎵 MUSLIRA PRO
 
-<div align="center">
-  <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=400&fit=crop" alt="MusliraPro" style="border-radius: 20px; margin: 20px 0;">
-  
-  [![iOS](https://img.shields.io/badge/iOS-15.0+-blue.svg)](https://developer.apple.com/ios/)
-  [![SwiftUI](https://img.shields.io/badge/SwiftUI-4.0+-green.svg)](https://developer.apple.com/xcode/swiftui/)
-  [![Web](https://img.shields.io/badge/Web-HTML5%20%7C%20CSS3%20%7C%20JS-orange.svg)](https://developer.mozilla.org/)
-  [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-</div>
+> Your Gateway to Premium Music
 
-## ✨ Особенности
+A world-class music platform featuring live concerts, masterclasses, and exclusive content from top artists. Built with a minimalist design inspired by Apple, Tesla, and Spotify.
 
-### 🎯 iOS Приложение
-- **Элитный дизайн** мирового уровня с градиентами и анимациями
-- **Живые трансляции** с высоким качеством
-- **Система концертов** с продажей билетов
-- **Чат с музыкантами** и поддержкой
-- **Партнерская программа**
-- **Профиль пользователя** с премиум функциями
+## ✨ Features
 
-### 🌐 Веб-Версия
-- **Адаптивный дизайн** для всех устройств
-- **Интерактивные трансляции** с фильтрами
-- **Тарифные планы** подписки
-- **FAQ и поддержка**
-- **Современный UI/UX**
+### 📱 iOS App (SwiftUI)
+- **Ultimate Design** - Glassmorphism, smooth animations, dark theme
+- **Live Streams** - Watch concerts in real-time with program schedule
+- **Artist Profiles** - Verified musicians with ratings, followers, and bios
+- **Partner Network** - Studios, equipment providers, venues, and media companies
+- **Video Archive** - Masterclasses, interviews, and recorded performances
+- **Premium Subscription** - Unlock exclusive features and content
+- **User Profiles** - Track favorites, following, and viewing history
+- **Multi-User Support** - Artists, Agents/Producers, Regular Users
 
-## 🚀 Технологии
+### 🌐 Web App (Responsive)
+- **World-Class UI** - Minimalist black & white design with premium feel
+- **Fully Responsive** - Works on desktop, tablet, and mobile
+- **Mock Data** - Real professional images from Unsplash
+- **Smooth Animations** - CSS transitions and entrance effects
+- **Search & Filter** - Find videos, artists, and partners easily
+- **Category Pills** - Quick filtering by genre, type, or category
+
+## 🎨 Design Philosophy
+
+- **Minimalism First** - Clean, uncluttered interface
+- **Dark Theme** - Easy on the eyes, premium feel
+- **Glassmorphism** - Subtle transparency and blur effects
+- **Smooth Animations** - 60fps transitions using cubic-bezier
+- **Typography** - Inter font family for crisp readability
+- **Whitespace** - Generous spacing for breathing room
+
+## 🛠️ Tech Stack
 
 ### iOS
-- **SwiftUI** - современный фреймворк для iOS
-- **MVVM** архитектура
-- **AsyncImage** для загрузки изображений
-- **NavigationView** и **TabView** для навигации
+- **SwiftUI** - Modern declarative UI framework
+- **Combine** - Reactive programming
+- **AsyncImage** - Asynchronous image loading
+- **UserDefaults** - Simple data persistence
+- **Custom Components** - Reusable UI elements
 
 ### Web
-- **HTML5** - семантическая разметка
-- **CSS3** - градиенты, анимации, flexbox/grid
-- **JavaScript** - интерактивность и функциональность
-- **Font Awesome** - иконки
-- **Google Fonts** - типографика
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with CSS Grid and Flexbox
+- **Vanilla JavaScript** - No frameworks, pure JS
+- **Python HTTP Server** - Simple local development
 
-## 📱 Скриншоты
+## 🚀 Getting Started
 
-### iOS Приложение
-<div align="center">
-  <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a5d4?w=300&h=600&fit=crop" alt="iOS App" style="border-radius: 15px; margin: 10px;">
-  <img src="https://images.unsplash.com/photo-1571330735066-03aaa9429dba?w=300&h=600&fit=crop" alt="iOS App" style="border-radius: 15px; margin: 10px;">
-  <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=300&h=600&fit=crop" alt="iOS App" style="border-radius: 15px; margin: 10px;">
-</div>
+### iOS App
 
-### Веб-Версия
-<div align="center">
-  <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=400&fit=crop" alt="Web App" style="border-radius: 15px; margin: 10px;">
-</div>
+1. Open `Muslirapro.xcodeproj` in Xcode
+2. Select your target device or simulator
+3. Press `⌘R` to build and run
 
-## 🛠 Установка и Запуск
+### Web App
 
-### iOS Приложение
+1. Navigate to the project directory:
 ```bash
-# Клонируйте репозиторий
-git clone https://github.com/Gel788/MusliraPro.git
-cd MusliraPro
-
-# Откройте проект в Xcode
-open Muslirapro.xcodeproj
-
-# Запустите на симуляторе или устройстве
+cd Muslirapro
 ```
 
-### Веб-Версия
+2. Start the local server:
 ```bash
-# Клонируйте репозиторий
-git clone https://github.com/Gel788/MusliraPro.git
-cd MusliraPro/web
-
-# Откройте index.html в браузере
-open index.html
-
-# Или используйте локальный сервер
-python -m http.server 8000
-# Откройте http://localhost:8000
+python3 -m http.server 8000 --directory web
 ```
 
-## 📁 Структура Проекта
+3. Open in browser:
+```
+http://localhost:8000
+```
+
+## 📦 Project Structure
 
 ```
-MusliraPro/
-├── Muslirapro/                 # iOS приложение
-│   ├── Models/                # Модели данных
-│   │   ├── User.swift
-│   │   ├── Concert.swift
-│   │   ├── Message.swift
-│   │   └── Partner.swift
-│   ├── Views/                 # SwiftUI представления
-│   │   ├── MainTabView.swift
-│   │   ├── HomeView.swift
-│   │   ├── ConcertsView.swift
-│   │   ├── ChatListView.swift
-│   │   ├── PartnersView.swift
-│   │   ├── ProfileView.swift
-│   │   └── LoginView.swift
-│   └── ViewModels/            # ViewModels
-│       └── AuthenticationManager.swift
-├── web/                      # Веб-версия
-│   ├── index.html            # Главная страница
-│   ├── streams.html          # Страница трансляций
-│   ├── subscription.html      # Страница подписки
+Muslirapro/
+├── Muslirapro/                 # iOS App
+│   ├── Models/                 # Data models
+│   ├── Views/                  # SwiftUI views
+│   │   ├── Ultimate*/          # World-class views
+│   │   ├── SharedComponents.swift
+│   │   └── ...
+│   ├── ViewModels/             # Business logic
+│   └── Assets.xcassets/        # Images and colors
+├── web/                        # Web App
 │   ├── css/
-│   │   └── style.css         # Стили
-│   └── js/
-│       ├── script.js         # Основная функциональность
-│       ├── streams.js        # Функции трансляций
-│       └── subscription.js   # Функции подписки
+│   │   └── style.css          # World-class styling
+│   ├── js/
+│   │   └── script.js          # App logic & mock data
+│   ├── index.html             # Main page
+│   └── 7-removebg-preview.png # Logo
 └── README.md
 ```
 
-## 🎨 Дизайн
+## 🎯 Key Components
 
-### Цветовая Палитра
-- **Основной**: `#8A2BE2` (Фиолетовый)
-- **Вторичный**: `#4B0082` (Индиго)
-- **Акцент**: `#FF1493` (Розовый)
-- **Фон**: `#1a1a2e` (Темно-синий)
+### iOS
+- `UltimateHomeView` - Main hub with quick access
+- `UltimateArtistsView` - Artist directory with profiles
+- `UltimatePartnersView` - Business partner showcase
+- `UltimateVideoArchiveView` - Video library
+- `UltimateProfileView` - User dashboard
+- `PremiumLiveStreamView` - Live concert streaming
+- `SharedComponents` - Reusable UI elements
 
-### Типографика
-- **Заголовки**: Montserrat (900, 700, 400)
-- **Основной текст**: Inter (400, 500, 600, 700)
+### Web
+- **Welcome Screen** - Animated entrance
+- **Navigation Bar** - Sticky header with blur effect
+- **Section Grid** - Responsive cards layout
+- **Search Bars** - Real-time filtering
+- **Category Pills** - Genre/type selection
 
-### Градиенты
-```css
---primary-gradient: linear-gradient(45deg, #8A2BE2, #4B0082);
---secondary-gradient: linear-gradient(45deg, #FF1493, #FF69B4);
-```
+## 🎭 Mock Data
 
-## 🌟 Функциональность
+All mock data uses professional images from [Unsplash](https://unsplash.com) including:
+- Artist portraits
+- Concert venues
+- Studio equipment
+- Live performances
 
-### iOS Приложение
-- ✅ **Навигация** по табам без регистрации
-- ✅ **Живые трансляции** с премиум дизайном
-- ✅ **Концерты** с детальной информацией
-- ✅ **Чат** с поддержкой и музыкантами
-- ✅ **Партнеры** с фильтрацией
-- ✅ **Профиль** с гостевым доступом
+### Featured Artists
+- **Elena Volkova** - Classical pianist (125K followers)
+- **DJ Muslira** - Electronic producer (89K followers)
+- **The Warriors** - Rock legends (234K followers)
+- **Maria Johnson** - Pop vocalist (156K followers)
+- **Sarah Blues** - Jazz singer (92K followers)
 
-### Веб-Версия
-- ✅ **Адаптивный дизайн** для всех устройств
-- ✅ **Интерактивные трансляции** с фильтрами
-- ✅ **Тарифные планы** с переключателем
-- ✅ **FAQ** с анимациями
-- ✅ **Модальные окна** для подписки
-- ✅ **Плавные анимации** и переходы
+### Partner Companies
+- **Abbey Road Studios** - Legendary recording studio
+- **Steinway & Sons** - Premium piano manufacturer
+- **Carnegie Hall** - World-renowned concert venue
+- **Universal Music** - Global entertainment company
 
-## 🚀 Деплой
+## 📱 Screenshots
 
-### GitHub Pages
-Веб-версия автоматически деплоится на GitHub Pages:
-- **URL**: https://gel788.github.io/MusliraPro/
-- **Источник**: `/web` папка
-- **Автодеплой**: при каждом push в main
+### iOS App
+- Welcome Screen with MUSLIRA PRO branding
+- Home with Quick Access and Main Sections
+- Artists grid with verified badges
+- Partners showcase with ratings
+- Profile with statistics
 
-### iOS App Store
-Для публикации в App Store:
-1. Откройте проект в Xcode
-2. Настройте Bundle Identifier
-3. Добавьте иконки и метаданные
-4. Архивируйте и загрузите в App Store Connect
+### Web App
+- Responsive welcome animation
+- Clean navigation bar
+- Video archive with thumbnails
+- Artist profiles with bios
+- Partner cards with categories
 
-## 📊 Аналитика
+## 🔮 Future Enhancements
 
-Проект включает встроенную аналитику для отслеживания:
-- Выбор тарифных планов
-- Просмотр трансляций
-- Взаимодействие с контентом
-- Конверсия подписок
+- [ ] Backend API integration
+- [ ] Real-time chat with artists
+- [ ] Payment processing for subscriptions
+- [ ] Push notifications for live streams
+- [ ] Social sharing features
+- [ ] Advanced search filters
+- [ ] Playlist creation
+- [ ] Offline mode for iOS
 
-## 🤝 Вклад в Проект
+## 👥 User Types
 
-1. Форкните репозиторий
-2. Создайте ветку для новой функции (`git checkout -b feature/AmazingFeature`)
-3. Зафиксируйте изменения (`git commit -m 'Add some AmazingFeature'`)
-4. Отправьте в ветку (`git push origin feature/AmazingFeature`)
-5. Откройте Pull Request
+1. **Regular Users** - Browse, watch, and subscribe
+2. **Artists** - Upload content, connect with fans
+3. **Agents/Producers** - Manage artists, view analytics
 
-## 📄 Лицензия
+## 🎵 Live Features
 
-Этот проект лицензирован под MIT License - см. файл [LICENSE](LICENSE) для деталей.
+- **Concert Streaming** - HD quality with no recording
+- **Program Schedule** - See what's playing when
+- **Viewer Count** - Real-time audience tracking
+- **Full Screen Mode** - Immersive viewing experience
 
-## 👥 Команда
+## 💳 Subscription Plans
 
-- **Разработка**: [@Gel788](https://github.com/Gel788)
-- **Дизайн**: Элитный UI/UX мирового уровня
-- **Концепция**: MusliraPro - музыкальная платформа будущего
+- **Monthly** - ₽999/month
+- **Annual** - ₽9,999/year (save 17%)
 
-## 📞 Контакты
+### Premium Benefits
+- ✅ Ad-free experience
+- ✅ Exclusive live streams
+- ✅ Early access to concerts
+- ✅ Direct messaging with artists
+- ✅ Priority support
 
-- **GitHub**: [@Gel788](https://github.com/Gel788)
-- **Проект**: [MusliraPro](https://github.com/Gel788/MusliraPro)
-- **Веб-версия**: [Live Demo](https://gel788.github.io/MusliraPro/)
+## 📄 License
+
+© 2025 Muslira Pro. All rights reserved.
+
+## 🤝 Contributing
+
+This is a private project. For inquiries, please contact the development team.
+
+## 📞 Contact
+
+**Created by:** Anna Simonyan  
+**GitHub:** [Gel788/MusliraPro](https://github.com/Gel788/MusliraPro)
 
 ---
 
-<div align="center">
-  <p>Сделано с ❤️ для ценителей качественной музыки</p>
-  <p>🎵 MusliraPro - Звук Будущего 🎵</p>
-</div>
+Made with ❤️ for music lovers worldwide
