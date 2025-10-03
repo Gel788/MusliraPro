@@ -20,15 +20,29 @@ class AuthenticationManager: ObservableObject {
     func login(email: String, password: String) {
         // Здесь будет логика входа
         // Пока что для демонстрации создаем тестового пользователя
-        let user = User(username: "Пользователь", email: email)
+        let user = User(
+            userType: .user,
+            firstName: "Иван",
+            lastName: "Иванов",
+            email: email,
+            phone: "+7 999 999 99 99",
+            country: "Россия"
+        )
         currentUser = user
         isAuthenticated = true
         saveAuthentication()
     }
     
-    func register(username: String, email: String, password: String) {
+    func register(userType: UserType, firstName: String, lastName: String, email: String, phone: String, country: String, password: String) {
         // Здесь будет логика регистрации
-        let user = User(username: username, email: email)
+        var user = User(
+            userType: userType,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phone: phone,
+            country: country
+        )
         currentUser = user
         isAuthenticated = true
         saveAuthentication()

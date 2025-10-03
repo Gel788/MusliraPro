@@ -163,7 +163,14 @@ struct ChatView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var messages: [Message] = []
     @State private var newMessage = ""
-    @State private var currentUser = User(username: "Пользователь", email: "user@example.com")
+    @State private var currentUser = User(
+        userType: .user,
+        firstName: "Иван",
+        lastName: "Иванов",
+        email: "user@example.com",
+        phone: "+7 999 999 99 99",
+        country: "Россия"
+    )
     
     var body: some View {
         NavigationView {
@@ -218,7 +225,7 @@ struct ChatView: View {
                 Message(
                     content: "Привет! У меня вопрос по подписке",
                     senderId: currentUser.id,
-                    senderName: currentUser.username
+                    senderName: currentUser.fullName
                 )
             ]
         } else {
@@ -231,7 +238,7 @@ struct ChatView: View {
                 Message(
                     content: "Привет всем! Ищу музыкантов для совместного проекта",
                     senderId: currentUser.id,
-                    senderName: currentUser.username
+                    senderName: currentUser.fullName
                 )
             ]
         }
@@ -243,7 +250,7 @@ struct ChatView: View {
         let message = Message(
             content: newMessage,
             senderId: currentUser.id,
-            senderName: currentUser.username
+            senderName: currentUser.fullName
         )
         
         messages.append(message)

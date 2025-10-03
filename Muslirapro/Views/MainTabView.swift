@@ -13,49 +13,70 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView()
+            UltimateHomeView()
                 .tabItem {
                     Image(systemName: "house.fill")
-                    Text("Главная")
+                    Text("Home")
                 }
                 .tag(0)
             
-            VideoArchiveView()
+            UltimateVideoArchiveView()
                 .tabItem {
-                    Image(systemName: "video.fill")
-                    Text("Видеоархив")
+                    Image(systemName: "play.rectangle.fill")
+                    Text("Videos")
                 }
                 .tag(1)
             
-            ArtistsView()
+            UltimateArtistsView()
                 .tabItem {
-                    Image(systemName: "music.note.house.fill")
-                    Text("Артисты")
+                    Image(systemName: "music.mic")
+                    Text("Artists")
                 }
                 .tag(2)
             
-            PartnersView()
+            UltimatePartnersView()
                 .tabItem {
-                    Image(systemName: "person.2.fill")
-                    Text("Партнеры")
+                    Image(systemName: "star.circle.fill")
+                    Text("Partners")
                 }
                 .tag(3)
             
-            ProfileView()
+            UltimateProfileView()
                 .tabItem {
                     Image(systemName: "person.circle.fill")
-                    Text("Личный кабинет")
+                    Text("Profile")
                 }
                 .tag(4)
         }
-        .accentColor(.red)
+        .accentColor(.white)
         .environmentObject(authManager)
         .onAppear {
-            // Настройка навигации с логотипом
+            // World-Class Tab Bar Styling
             let appearance = UITabBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = UIColor.black
-            appearance.shadowColor = UIColor.red.withAlphaComponent(0.3)
+            
+            // Inactive items
+            let itemAppearance = UITabBarItemAppearance()
+            itemAppearance.normal.iconColor = UIColor.white.withAlphaComponent(0.4)
+            itemAppearance.normal.titleTextAttributes = [
+                .foregroundColor: UIColor.white.withAlphaComponent(0.4),
+                .font: UIFont.systemFont(ofSize: 10, weight: .medium)
+            ]
+            
+            // Selected items
+            itemAppearance.selected.iconColor = UIColor.white
+            itemAppearance.selected.titleTextAttributes = [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.systemFont(ofSize: 10, weight: .semibold)
+            ]
+            
+            appearance.stackedLayoutAppearance = itemAppearance
+            appearance.inlineLayoutAppearance = itemAppearance
+            appearance.compactInlineLayoutAppearance = itemAppearance
+            
+            // Subtle top border
+            appearance.shadowColor = UIColor.white.withAlphaComponent(0.1)
             
             UITabBar.appearance().standardAppearance = appearance
             UITabBar.appearance().scrollEdgeAppearance = appearance

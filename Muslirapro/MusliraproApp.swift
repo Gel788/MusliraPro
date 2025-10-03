@@ -14,10 +14,10 @@ struct MusliraproApp: App {
     var body: some Scene {
         WindowGroup {
             if showWelcome {
-                WelcomeView()
+                UltimateWelcomeView()
                     .onAppear {
-                        // Показываем экран приветствия 3 секунды
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        // Показываем экран приветствия 2.5 секунды
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             withAnimation(.easeInOut(duration: 0.5)) {
                                 showWelcome = false
                             }
